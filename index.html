@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Függvények</title>
+</head>
+<body>
+    <script>
+
+    // -------------------------------------------- 11. fejezet: FÜGGVÉNYEK ---------------------------------
+    //                   https://www.youtube.com/watch?v=FCZhNaTtePc&ab_channel=K%C3%B3db%C3%A1zis
+
+
+        // alprogram --- subrutin  (program a programban)
+
+        function rantotta(){
+            console.log ("Önts olajat a serpenyőbe");
+            console.log ("Addj hozzá 3 tojást");
+            fuszerek();                      // console.log ("Addj hozzá fűszereket");
+            console.log ("Süsd 4 percig");
+            console.log ("Kész");
+
+        }
+        function fuszerek(){
+            console.log("Adj hozzá sót");
+            console.log("Adj hozzá borsot");
+            console.log("Adj hozzá paprikát");
+        }
+
+        // function call- függvény meghívása:
+           rantotta();
+           console.log('------');
+            rantotta();
+            rantotta();      // akárhányszor meghívjuk, annyiszor írja ki.
+
+//----------------------------------------------------------
+
+  // function, mint matematikai függvény --- input adatot kapnak és output adatot generálnak ki
+
+  function addOne(szam){           // lokális változó
+    console.log(szam);             // belül hívtuk meg
+  }
+  addOne(5);
+  addOne(4);
+  addOne(2);         // akármit, vagy akármelyiket meghívjuk, azt mindet kiírja. 
+
+//---------------------------------------------------------
+
+// A szám vissza is hívható ---> return használata .... number --> number
+
+
+   function addOne2(szam){       
+       return szam + 1;
+ }
+ //console.log(addOne2(5));                   //  kívül hívtuk meg  ---> 6
+ console.log(addOne2(addOne2(addOne2(5))));   //                    ---> 8
+
+ //------------------------------------------------------------
+
+   // table lookup :        dinamikus kulcs alapján kikeresett érték
+
+    function addTwo(szam){
+        return{
+           0 : 2,        // Ha 0 érkezik bemenetként, akkor kettőt kell visszaküldeni
+           1 : 3,        // Ha 1  érkezik, akkor 3 jön vissza
+           2 : 4
+        }[szam];
+    }
+    //console.log(addTwo(0));             // ---> 2
+      console.log(addTwo(addTwo(0)));     // ---> 4
+
+//----------------------------------------------------------------
+
+  // function = first class citizen
+  // egy function-t beletehetek egy másik function-be.----> anonim function :  
+
+  //  FONTOS! Bármelyik functiont deklarálás előtt vagy után is meghívhatjuk, viszont az anonim function-t CSAK UTÁNA
+
+  // hozzáköthejük változóhoz
+
+      var addThree = function(szam){
+        return szam + 3;
+      }
+      console.log(addThree(2));            // ---> 5
+
+    </script>
+</body>
+</html>
